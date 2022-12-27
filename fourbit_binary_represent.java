@@ -1,4 +1,5 @@
-/* The program must accept an integer N as the input. The program must print the 4-bit binary
+/* 27-12-2022
+The program must accept an integer N as the input. The program must print the 4-bit binary
 representation of each digit in N as the output.
 Boundary Condition(s):
 1 <= N <= 10^15
