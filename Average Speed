@@ -44,7 +44,7 @@ public class Hello {
 		        time=time+num;
 		    }
 		}
-		System.out.format("%.2f",km/time);
+		System.out.format("%.2f kmph",km/time);
 		
 		
 
