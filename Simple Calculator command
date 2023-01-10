@@ -1,0 +1,86 @@
+/*
+A string S is passed as input. S will contain two integer values separated by one of these alphabets
+- A, S, M, D where
+- A or a is for addition
+- S or s is for subtraction
+- M or m is for multiplication
+- D or d is for division
+The program must perform the necessary operation and print the result as the output. (Ignore any
+floating point values just print the integer result.)
+Input Format:
+The first line contains S.
+Output Format:
+The first line contains the resulting integer value.
+Boundary Conditions:
+Length of S is from 3 to 100.
+Example Input/Output 1:
+Input:
+5A11
+Output:
+16
+Explanation:
+As the alphabet is A, 5 and 11 are added giving 16.
+Example Input/Output 2:
+Input:
+120D6
+Output:
+20
+Example Input/Output 3:
+Input:
+1405d10
+Output:
+140
+*/
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        String str[]=s.split("");
+        String first="";
+        String last=""; 
+        char c=' ';
+        for(int i=0;i<str.length;i++)
+        {
+            char ch=s.charAt(i);
+            if((ch>='a'&& ch<='z') || (ch>='A' && ch<='Z'))
+            {
+                c=ch;   
+                for(int j=i+1;j<str.length;j++)
+                {
+                 last=last+str[j];   
+                }
+                break;
+            }
+            else
+            {
+              first=first+str[i];   
+            }
+        }
+        int n1=Integer.parseInt(first);
+        int n2=Integer.parseInt(last);
+        
+       
+        if((c=='a')||(c=='A'))
+        {
+            
+            System.out.print(n1+n2);
+        }
+        else if((c=='s')||(c=='S'))
+        {
+            System.out.print(n1-n2);
+        }
+        else if((c=='m')||(c=='M'))
+        {
+            System.out.print(n1*n2);
+        }
+        else
+        {
+            System.out.print(n1/n2);
+        }
+        
+	}
+}
