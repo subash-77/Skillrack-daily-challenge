@@ -1,0 +1,69 @@
+/*
+
+The program must accept an integer N as the input. The program must form a floating point value
+by replacing the last occurring even digit in N by . (dot). Finally, the program must print the
+floating point value with the precision up to two decimal places as the output.
+Note: N has at least one even digit.
+Boundary Condition(s):
+1 <= N <= 10^9
+Input Format:
+The first line contains the value of N.
+Output Format:
+The first line contains the floating point value.
+Example Input/Output 1:
+Input:
+2516799
+Output:
+251.80
+Explanation:
+The last occurring even digit is 6. So it is replaced by . (dot) 251.799
+After rounding up to two decimal places, the value becomes 251.80
+Example Input/Output 2:
+Input:
+41053933
+Output:
+41.54
+
+*/
+
+import java.util.*;
+
+class Main {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        
+        int len=s.length();
+        
+        char str[]=s.toCharArray();
+       
+        int index=0;
+        for(int i=0;i<str.length;i++)
+        {
+            int n=Character.getNumericValue(str[i]);
+            if(n%2==0)
+            {
+                index=i;
+            }
+        }
+        char ch=s.charAt(index);
+        
+        String res="";
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)==ch)
+            {
+                res=res+'.';
+            }
+            else
+            {
+                res=res+s.charAt(i);
+            }
+        }
+        double d1=Double.parseDouble(res);
+        System.out.print(String.format("%.2f",d1));
+        
+	}
+}
