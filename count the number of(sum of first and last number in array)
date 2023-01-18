@@ -1,6 +1,6 @@
 /*
 input:
-4 2 3 6 6 9 2
+4 2 3 6 6 9 2                       //sum=4+2; so sum=6 now the occurence of sum in the array!
 
 output:
 2
