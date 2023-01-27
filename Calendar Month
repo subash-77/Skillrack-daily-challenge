@@ -1,0 +1,29 @@
+A date in DD-MM-YYYY format is passed as the input. The program must print the calendar month.
+01 - January, 02 - February and so on till 12 - December.
+Input Format:
+First line will contain the date in DD-MM-YYYY format.
+Output Format:
+The string value denoting the month.
+Example Input/Output 1:
+Input:
+23-12-2016
+Output:
+December
+
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        String s1[]=s.split("-");
+        String s2=s1[1];
+        int n=Integer.parseInt(s2);
+        String s3[]={"January","February","March","April","May","June","July","August","September","October","November","December"};
+        System.out.print(s3[n-1]);
+	}
+}
