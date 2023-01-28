@@ -1,0 +1,62 @@
+accepta string S the Input end print the characters alternatively from the and from the end. The count of characters printed must Increase by 1 each time. 
+Boundary Condltion(e): 1 <- Length of S <n, 1000 
+Input Format: The first line contains S. 
+Output Format: 
+The first line contains the characters ITS alternatively from the beginning and from the end. 
+
+
+Examle Input/Output 1: 
+
+Input abcdefghijk 
+Output akbcijdefgh 
+
+Explanation: Here S = abcdefghijk. 1 character from the beginning is a. 1 character fromt the end is k. Next 2 characters from the beginning are b and c. N. 2 characters from the end are i and j. N. 3 characters from the beginning are d, *Id f. There are only 2 characters at the end, which are g and h. Hence the output is akbcijdefgh 
+Examle Input/Output 2: 
+
+Input abcdefghijklmno 
+Output aobcmndefjklghi 
+
+CODE:
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    String s=sc.next();
+	    int i=0;
+	    int j=s.length()-1;
+	    int inc=1;
+	    int dup1=0;
+	    int dup2=j;
+	    int integer1=1;
+	    int integer2=1;
+	    String ss="";
+	    while(i<j)
+	    {
+	        for(int x=dup1;x<=i;x++)
+	        {
+	            System.out.print(s.charAt(x));
+	            
+	        }
+	        for(int y=dup2;y>=j;y--)
+	        {
+	            ss=s.charAt(y)+ss;
+	           
+	        }
+	        System.out.print(ss);
+	        ss="";
+	        dup1=i+1;
+	        i=i+(++integer1);
+	        dup2=j-1;
+	        j=j-(++integer2);
+	       
+	    }
+	    
+	    for(int z=dup1;z<=dup2;z++)
+	    {
+	        System.out.print(s.charAt(z));
+	    }
+	    
+	}
+}
