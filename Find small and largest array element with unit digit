@@ -1,0 +1,52 @@
+The program must accept N integers and a digit D as the input. The program must print the largest and the smallest integer having the unit digit D among the N integers as the output. NotoAt least one integer always has the unit digit D. Boundary Condition(s): 1 <= N <= 100 -10^8 <= Each integer value <= 1003 0<=D<=9 
+Input Format: The first line contains N. The second line contains N integers separated by a space. The third the contains D. 
+Output Format The firstline contains the largest integer having the unit digit D. The second fine contains the smallest integer having the unit digit D. 
+
+
+Example Input/Output 1:
+Input 
+6 
+92 84 602 75 12 122 
+2 
+Output:
+  602 12
+  
+Explanation: The integers having the unit digit 2 are 92, 602, 12 and 122. 
+The largest and the smallest integer having the unit digit 2 are 602 and 12. Hence the output is 602 12 
+
+Code:
+
+import java.util.*;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int a[]=new int[n];
+	    for(int i=0;i<n;i++)
+	    {
+	        a[i]=sc.nextInt();
+	    }
+	    int n1=sc.nextInt();
+	    Arrays.sort(a);
+	    for(int i=0;i<n;i++)
+	    {
+	        double dd=Math.abs(a[i])%10;
+	        if(dd==n1)
+	        {
+	            System.out.println(a[i]);
+	            break;
+	        }
+	    }
+	    for(int i=n-1;i>=0;i--)
+	    {
+	        double dd=Math.abs(a[i])%10;
+	        if(dd==n1)
+	        {
+	            System.out.print(a[i]);
+	            break;
+	        }
+	    }
+}
+}
