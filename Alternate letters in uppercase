@@ -1,0 +1,51 @@
+
+A string S (only alphabets) is passed as input. The printed output should contain
+alphabets in odd positions in each word in uppercase and alphabets in even
+positions in each word in lowercase.
+Input Format:
+The first line will contain S.
+Output Format:
+The first line will contain the resultant string value based on the conditions
+provided.
+Boundary Conditions:
+Length of S is from 3 to 100.
+Example Input/Output 1:
+Input:
+tREE GiVES us fruiTS
+Output:
+TrEe GiVeS Us FrUiTs
+Example Input/Output 2:
+Input:
+FLoweR iS beauTIFUL
+Output:
+FlOwEr Is BeAuTiFuL
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        String s[]=str.split(" ");
+        for(int i=0;i<s.length;i++)
+        {
+            String s1=s[i];
+            for(int j=0;j<s1.length();j++)
+            {
+                char c=s1.charAt(j);
+                if(j%2==0)
+                {
+                    System.out.print(Character.toUpperCase(c));
+                }
+                else
+                {
+                    System.out.print(Character.toLowerCase(c));
+                }
+            }
+            System.out.print(" ");
+        }
+	}
+}
