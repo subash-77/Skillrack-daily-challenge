@@ -32,18 +32,20 @@ public class Hello {
 		//Your Code Here
         Scanner sc=new Scanner(System.in);
         long n=sc.nextLong();
+        String s="";
         while(n!=0)
         {
-            int d=n%10;
+            long d=n%10;
             if(d%2==0)
             {
-                System.out.print("1");
+               s='1'+s;
             }
             if(d%2==1)
             {
-                System.out.print("2");
+               s='2'+s;
             }
             n=n/10;
         }
+        System.out.print(s);
 	}
 }
