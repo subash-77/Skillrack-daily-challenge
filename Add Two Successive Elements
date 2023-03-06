@@ -1,0 +1,92 @@
+Add Two Successive Elements
+Given N integers, add every two successive elements. Repeat the process until a single sum value is
+obtained. If the sum has more than one digits add all the digits until a single digit is obtained.
+   
+Boundary Condition(s):
+2 <= N <= 100
+Input Format:
+The first line contains the value of N.
+The second line contains the N integer values separated by space(s).
+Output Format:
+The first line contains the sum value.
+Example Input/Output 1:
+Input:
+5
+1 2 3 4 5
+Output:
+3
+Explanation : 
+1 2 3 4 5
+ 3 5 7 9
+  8 12 16
+   20 28
+     48
+     
+1+2=3, 2+3=5, 3+4=7, 4+5=9. Then 3+5=8, 5+7=12, 7+9=16. Then 8+12=20,12+16=28 then
+20+28=48. 4+8=12 then 1+2=3.
+Example Input/Output 2:
+Input:
+4 
+1 6 2 9
+Output:
+7
+Explanation:
+1 6 2 9
+ 7 8 11
+  15 19
+   34
+   
+1+6=7, 6+2=8, 2+9=11 then 7+8=15, 8+11=19 then 15+19=34. Then 3+4=7.
+
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int a[]=new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    a[i]=sc.nextInt();
+		}
+		int dupn=n;
+		for(int i=0;i<n;i++)
+		{
+		    for(int j=0;j<dupn;j++)
+		    {
+		        if(j!=dupn-1)
+		        {
+		            a[j]=a[j]+a[j+1];
+		        }
+		    }
+		    dupn--;
+		}
+		int d=a[0];
+		int sum=0,f=1,ans=0;
+		while(f==1)
+		{
+		    while(d!=0)
+		    {
+		        int d1=d%10;
+		        sum=sum+d1;
+		        d=d/10;
+		    }
+		    ans=sum;
+		    d=sum;
+		    if(ans>9)
+		    {
+		        f=1;
+		        sum=0;
+		    }
+		    else
+		    {
+		        f=0;
+		    }
+		}
+		System.out.print(sum);
+	}
+}
