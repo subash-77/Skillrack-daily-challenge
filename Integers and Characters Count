@@ -1,0 +1,60 @@
+
+A string S is passed as input. The program must print the count of alphabets and integers in it.
+Boundary Condition(s):
+2 <= Length of String <= 1000
+Input Format:
+The first line contains S.
+Output Format:
+The first line contains the count of alphabet and integers.
+Example Input/Output 1:
+Input:
+boy243twill45
+Output:
+10
+Explanation:
+There are 8 alphabets (b, o, y, t, w, i, l, l) and 2 integers (243 and 45).
+Example Input/Output 2:
+Input:
+bill24
+Output:
+5
+Explanation:
+There are 4 alphabets (b, i, l, l) and 1 integer (24).
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine().trim();
+		int flag=0,count=0;
+		for(int i=0;i<s.length();i++)
+		{
+		    char c=s.charAt(i);
+		    
+		    if(Character.isDigit(c))
+		    {
+		        if(i==s.length()-1)
+		        {
+		            count++;
+		        }
+		        flag=1;
+		        continue;
+		    }
+		    if(Character.isAlphabetic(c))
+		    {
+		        if(flag==1)
+		        {
+		            count++;
+		            flag=0;
+		        }
+		        count++;
+		    }
+		}
+		System.out.print(count);
+
+	}
+}
