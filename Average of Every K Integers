@@ -1,0 +1,80 @@
+Average of Every K Integers
+The program must accept N integers and an integer K as the input. The program must print the
+average of every K integers among the N integers with the precision up to 2 decimal places.
+Note: The value of N is always divisible by K.
+Boundary Condition(s):
+2 <= K <= N <= 100
+1 <= Each integer value <= 1000
+Input Format:
+The first line contains N.
+The second line contains N integers separated by a space.
+The third line contains K.
+Output Format:
+The first line contains the average of every K integers separated by a space.
+Example Input/Output 1:
+Input:
+4
+12 4 5 18
+2
+Output:
+8.00 11.50
+Explanation:
+Here N = 4 and K = 2.
+The average of the first two integers is 8.00 (with the precision up to 2 decimal places).
+The average of the next two integers is 11.50 (with the precision up to 2 decimal places).
+Hence the output is
+8.00 11.50
+Example Input/Output 2:
+Input:
+6
+41 47 54 17 33 48
+3
+Output:
+47.33 32.67
+
+CODE:
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        int k1=k;
+        int j;
+        double sum=0;
+        int su;
+        for(int i=0;i<n;i++)
+        {
+            if(i!=0)
+            {
+                --i;
+            }
+            if(k>n)
+            {
+               su=n; 
+            }
+            else
+            {
+                su=k;
+            }
+            for(j=i;j<su;j++)
+            {
+                sum=sum+a[j];
+            }
+            System.out.format("%.2f ",sum/k1);
+            sum=0;
+            i=k;
+            k=k+k;
+        }
+        
+       
+    }
+}
