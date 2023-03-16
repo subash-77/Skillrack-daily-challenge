@@ -1,0 +1,49 @@
+A string S is passed as the input. The program must print the number of articles (a, an and the) in S. The string S passed as the input NEED NOT be correct grammatically Input Format: The first line will contain S Output Format: The first line will contain the count of articles in S. Boundary Conditions: The length of the string S will be from 3 to 1000. Each word in S will not be more than 100 characters.
+
+Input Format
+
+string
+
+Constraints
+
+-
+
+Output Format
+
+string
+
+Sample Input 0
+
+I went to a movie yesterday along with an old man.
+Sample Output 0
+
+2
+Sample Input 1
+
+In 1885 it was banished from the shelves of the Concord Public Library, an act that
+attracted a lot of publicity and discussion in the press. It is still frequently in the news, as various schools and school systems across the country either ban it from or restore it to their classrooms. The texts and illustrations below attempt to capture both the novel's achievement and some aspects of its controversiality.
+Sample Output 1
+
+8
+
+CODE:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    char s1[1000];
+    int count=0;
+    while(scanf("%s",s1)>0)
+    {
+        if(strcmp(s1,"a")==0 || strcmp(s1,"an")==0 || strcmp(s1,"the")==0)
+        {
+            count++;
+        }
+    }
+    printf("%d",count);
+    return 0;
+}
