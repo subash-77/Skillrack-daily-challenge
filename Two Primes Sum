@@ -1,0 +1,82 @@
+Two Primes Sum
+Given an integer N as input, the program must print two prime numbers whose sum will be equal
+to given integer. If there are several combinations possible, print only first such pair. Otherwise
+print -1 as output.
+Boundary Condition(s):
+2 <= N <= 999999
+Input Format:
+The first line contains the value of N.
+Output Format:
+The first line contains two prime numbers whose sum is equal to given integer N otherwise -1.
+Example Input/Output 1:
+Input:
+34
+Output:
+3 31
+Example Input/Output 2:
+Input:
+1024
+Output:
+3 1021
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		//System.out.print("*");
+		if(n%2==0)
+		{
+		    for(int i=3;i<=n/2;i+=2)
+		    {
+		        if(isprime(i) && isprime(n-i))
+		        {
+		            System.out.print(i+" "+(n-i));
+		            return;
+		        }
+		    }
+		}
+		else
+		{
+		    if(isprime(n-2))
+		    {
+		        System.out.print(2+" "+(n-2));
+		        return;
+		    }
+		    for(int i=3;i<=n/2;i+=2)
+		    {
+		        if(isprime(i) && isprime(n-i))
+		        {
+		            System.out.print(i+" "+(n-i));
+		            return;
+		        }
+		    }
+		    System.out.print("-1");
+		}
+    }
+		public static boolean isprime(int num)
+		{
+		    if(num == 2)
+		    {
+		        return true;
+		    }
+		    if(num%2==0 || num==1)
+		    {
+		        return false;
+		    }
+		    for(int i=3;i<=Math.sqrt(num);i+=2)
+		    {
+		        if(num%i==0)
+		        {
+		            return false;
+		        }
+		    }
+		    return true;
+		}
+		
+    
+}
