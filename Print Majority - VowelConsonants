@@ -1,0 +1,66 @@
+Print Majority - Vowel/Consonants
+The program must accept a string S as the input. The program must print only the vowels in the string
+if the vowel count is larger than the consonant count. Else the program must print only the consonants
+in S as the output. If both the counts are equal, then the program must print the string as it is without
+any change.
+Note: The alphabets must be printed in the same order as given in the input.
+Boundary Condition(s):
+1 <= Length of S <= 1000
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains the string based on the given condition.
+Example Input/Output 1:
+Input:
+takeout
+Output:
+aeou
+Explanation:
+The number of vowels in takeout is 4.
+The number of consonants in takeout is 3.
+Hence the vowels are printed.
+Example Input/Output 2:
+Input:
+partyhall
+Output:
+prtyhll
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+		Scanner sc = new Scanner(System.in);
+		String s=sc.nextLine();
+		String str="aeiouAEIOU";
+		
+		String vow="",cons="";
+		for(int i=0;i<s.length();i++)
+		{
+		    char c=s.charAt(i);
+	        if(str.indexOf(c)>=0)
+	        {
+	            vow+=s.charAt(i);
+	        }
+	        else
+	        {
+	            cons+=s.charAt(i);
+	        }
+		}
+		if(vow.length()>cons.length())
+		{
+		    System.out.print(vow);
+		}
+		else if(vow.length()<cons.length())
+		{
+		    System.out.print(cons);
+		}
+		else
+		{
+		    System.out.print(s);
+		}
+
+	}
+}
