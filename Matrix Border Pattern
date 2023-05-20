@@ -1,0 +1,70 @@
+Matrix Border Pattern
+The program must accept an integer N as the input. The program must print the desired pattern as
+shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= N <= 50
+Input Format:
+The first line contains the value of N.
+Output Format:
+The first N lines containing the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+4
+Output:
+1 2 3 4
+2 * * 3
+3 * * 2
+4 3 2 1
+Example Input/Output 2:
+Input:
+5
+Output:
+1 2 3 4 5
+2 * * * 4
+3 * * * 3
+4 * * * 2
+5 4 3 2 1
+
+CODE:
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+	
+		int flag=0,flag1=0;
+		int d=2,dd=n-1;
+		for(int i=1;i<=n;i++)
+		{
+		    System.out.print(i+" ");
+		}
+		System.out.print("\n");
+		for(int i=1;i<=n-2;i++)
+		{
+		    for(int j=1;j<=n;j++)
+		    {
+		        if(j==1)
+		        {
+		            System.out.print((d++)+" ");
+		        }
+		        else if(j==n)
+		        {
+		            System.out.print((dd--)+" ");
+		        }
+		        else
+		        {
+		            System.out.print("* ");
+		        }
+		    }
+		    System.out.print("\n");
+		}
+		for(int j=n;j>=1;j--)
+		{
+		    System.out.print(j+" ");
+		}
+
+	}
+}
