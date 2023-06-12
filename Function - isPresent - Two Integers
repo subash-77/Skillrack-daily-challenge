@@ -1,0 +1,53 @@
+Function - isPresent - Two Integers
+You must implement the function isPresent(int M, int N) which accepts two integers M and N as the
+input. The function must return 1 if the integer N is present in the integer M. Else it must return 0.
+Example Input/Output 1:
+Input:
+21380 38
+Output:
+YES
+Explanation:
+M = 21380
+N = 38
+Here 38 is present in 21380. So YES is printed.
+Example Input/Output 2:
+Input:
+2379003 279
+Output:
+NO
+
+CODE:
+
+int isPresent(int M, int N)
+{
+   int temp1=M;
+   int temp2=N;
+   int dm=M,dn=N;
+   int mlen=0,nlen=0;
+   while(temp1!=0)
+   {
+       temp1=temp1/10;
+       mlen+=1;
+   }
+   while(temp2!=0)
+   {
+       temp2=temp2/10;
+       nlen+=1;
+   }
+   char m[mlen];
+   char n[nlen];
+   
+   sprintf(m,"%d",M);
+   sprintf(n,"%d",N);
+   
+   if(strstr(m,n)!=NULL)
+   {
+       return 1;
+   }
+   else
+   {
+       return 0;
+   }
+   
+   
+}
