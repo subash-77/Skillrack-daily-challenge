@@ -1,0 +1,76 @@
+Form One and Zero
+The program must accept a string S containing only z, e, r, o and n as the input. The program must
+rearrange the string S such that the modified string containing only "one" and "zero" (all one's
+followed by all zero's). If it is not possible to rearrange the string S then the program must print -1 as
+the output.
+Boundary Condition(s):
+1 <= Length of S <= 1000
+Input Format:
+The first line contains S.
+Output Format:
+The first line contains the modified string S.
+Example Input/Output 1:
+Input:
+nznooeeoer
+Output:
+oneonezero
+Explanation:
+The string "nznooeeoer" can be rearranged as "oneonezero".
+Hence the output is oneonezero
+Example Input/Output 2:
+Input:
+erozn
+Output:
+-1
+
+CODE:
+
+import java.util.*;
+
+class Hello {
+
+    public static void main(String[] args) {
+        // Your Code Here
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        Map<Character, Integer> list = new HashMap<Character, Integer>();
+        for (char c : s.toCharArray()) {
+            if (list.containsKey(c)) {
+                list.put(c, list.get(c) + 1);
+            } else {
+                list.put(c, 1);
+            }
+        }
+        // System.out.print(list);
+        int a[] = new int[5];
+        int x = 0;
+        for (char c : list.keySet()) {
+            int i = list.get(c);
+            a[x++] = i;
+        }
+        int d = a[3];
+        a[1] = a[1] - d;
+        a[4] = a[4] - d;
+
+        int dd = a[2];
+        a[0] = a[0] - dd;
+        a[1] = a[1] - dd;
+        a[4] = a[4] - dd;
+        // for(int i:a)
+        // {
+        // System.out.print(i+" ");
+        // }
+
+        if (a[0] == 0 && a[1] == 0 && a[4] == 0) {
+            for (int i = 0; i < d; i++) {
+                System.out.print("one");
+            }
+            for (int i = 0; i < dd; i++) {
+                System.out.print("zero");
+            }
+        } else {
+            System.out.print("-1");
+        }
+
+    }
+}
