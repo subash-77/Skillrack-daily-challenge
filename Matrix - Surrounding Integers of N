@@ -1,0 +1,177 @@
+1/26/24, 11:14 AM skillrack.com/faces/candidate/dailychallenge.xhtml?k=DC
+https://www.skillrack.com/faces/candidate/dailychallenge.xhtml?k=DC 1/2
+Matrix - Surrounding Integers of N
+The program must accept an integer matrix of size RxC and an integer N as the input. The program
+must print the surrounding integers of N (all possible 8 integers). If the integer N is not present in the
+matrix then the program must print -1 as the output.
+Note: All the integers in the matrix are unique.
+Boundary Condition(s):
+2 <= R, C <= 50
+Input Format:
+The first line contains R and C separated by a space.
+The next R lines each contain C integers separated by a space.
+The (R+2)nd
+line contains N.
+Output Format:
+The first line contains the surrounding integers of N separated by a space or -1.
+Example Input/Output 1:
+Input:
+4 5
+21 68 13 60 42
+75 38 80 93 88
+95 94 16 58 17
+91 28 84 56 18
+16
+Output:
+38 80 93 94 58 28 84 56
+Explanation: 
+In the 4x5 matrix, the surrounding integers of 16 are highlighted below.
+21 68 13 60 42
+75 38 80 93 88
+95 94 16 58 17
+91 28 84 56 18
+Hence the output is 38 80 93 94 58 28 84 56
+Example Input/Output 2:
+Input:
+2 3
+39 70 20
+67 15 22
+39
+Output:
+70 67 15
+1/26/24, 11:14 AM skillrack.com/faces/candidate/dailychallenge.xhtml?k=DC
+https://www.skillrack.com/faces/candidate/dailychallenge.xhtml?k=DC 2/2
+Example Input/Output 3:
+Input:
+3 3
+43 93 69
+70 10 61
+34 19 46
+11
+Output:
+-1
+
+CODE:
+
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		//Your Code Here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+        int a[][]=new int[n][m];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                a[i][j]=sc.nextInt();
+                
+            }
+        }
+        int flag=0;
+        int f1=0;
+        int k=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(a[i][j]==k)
+                {
+                    int ka=a[i][j];
+                    int n1=i;
+                    int n2=j;
+                    n1--;
+                    n2--;
+                    if(n1>=0 && n2>=0)
+                    {
+                        f1=1;
+                        for(int l=1;l<=3;l++)
+                        {
+                           if(a[n1][n2]!=ka)
+                           {
+                            System.out.print(a[n1][n2]+" ");
+                            flag=1;
+                            
+                            if(n2==m)
+                            {
+                                break;
+                            }
+                           }
+                           n2++;
+                        }
+                        
+                    }
+                    n1=i;
+                    n2=j;
+                    n2--;
+                    if(n1>=0)
+                    {
+                        if(n2==-1 || n2>=m)
+                        {
+                            n2=j;
+                        }
+                        {
+                            
+                        }
+                        int d=0;
+                        if(f1==1)
+                        {
+                            d=3;
+                        }
+                        else
+                        {
+                            d=2;
+                        }
+                        for(int l=1;l<=d;l++)
+                        {
+                          if(a[n1][n2]!=ka)
+                          {
+                            System.out.print(a[n1][n2]+" ");
+                            flag=1;
+                          }
+                          n2++;
+                        }
+                    }
+                    n1=i;
+                    n2=j;
+                    n1++;
+                    n2--;
+                    if(n1<n)
+                    {
+                        int d=0;
+                        if(n2==-1 || n2>=m)
+                        {
+                            n2=j;
+                        }
+                        if(f1==1)
+                        {
+                            d=3;
+                        }
+                        else
+                        {
+                            d=2;
+                        }
+                        for(int l=1;l<=d;l++)
+                        {
+                          if(a[n1][n2]!=ka)
+                          {
+                            System.out.print(a[n1][n2]+" ");
+                            flag=1;
+                          }
+                          n2++;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+       if(flag==0)
+       {
+           System.out.print("-1");
+       }
+	}
+}
